@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>لوحة الأدمن</title><link rel="stylesheet" href="style.css">
+<style>body{padding-bottom:30px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.item{display:flex;gap:8px;align-items:flex-start;margin-bottom:8px}.item button{padding:8px 12px;background:#dc2626}.msg{color:var(--pri);margin:8px 0}.err{color:#dc2626}h3{margin:0 0 10px}</style>
+</head>
+<body>
+<header><div style="font-size:22px;font-weight:700">🔐 لوحة الأدمن</div></header>
+<main>
+  <div id="login" class="card form">
+    <label>رقم التسجيل</label><input type="text" id="id" inputmode="numeric" autocomplete="username">
+    <label>كلمة السر</label><input type="password" id="pw" autocomplete="current-password">
+    <div id="lerr" class="err"></div>
+    <button id="loginBtn">دخول</button>
+    <a href="/" class="sub">رجوع للتطبيق</a>
+  </div>
+
+  <div id="panel" hidden>
+    <div class="card form"><h3>اسم التطبيق</h3><input type="text" id="appName">
+      <label>رسالة الجمعة (تظهر يوم الجمعة فقط)</label><textarea id="jumaa" rows="3"></textarea></div>
+
+    <div class="card form"><h3>تعديل المواقيت (بالدقائق، من -30 إلى +30)</h3>
+      <div class="grid" id="adj"></div></div>
+
+    <div class="card form"><h3>الإعلانات / التنبيهات للمستخدمين</h3><div id="anns"></div>
+      <textarea id="newAnn" rows="2" placeholder="اكتب إعلان جديد"></textarea>
+      <button id="addAnn" class="ghost">+ إضافة إعلان</button></div>
+
+    <div class="card form"><h3>أذكار وأدعية إضافية</h3><div id="azk"></div>
+      <input type="text" id="newZT" placeholder="العنوان (مثال: دعاء السفر)">
+      <textarea id="newZ" rows="3" placeholder="النص" style="margin-top:8px"></textarea>
+      <button id="addZ" class="ghost">+ إضافة ذكر</button></div>
+
+    <button id="save" style="width:100%">💾 حفظ ونشر التعديلات</button>
+    <div id="msg" class="msg"></div>
+
+    <div class="card form" style="margin-top:14px"><h3>تغيير بيانات الدخول</h3>
+      <label>كلمة السر الحالية</label><input type="password" id="op">
+      <label>رقم التسجيل الجديد (اتركه فاضي لو مش عاوز تغيّره)</label><input type="text" id="nid">
+      <label>كلمة السر الجديدة (8 أحرف على الأقل)</label><input type="password" id="np">
+      <button id="chg" class="ghost">تغيير</button><div id="pmsg" class="msg"></div></div>
+    <button id="out" class="ghost" style="width:100%">تسجيل خروج</button>
+  </div>
+</main>
+<script src="admin.js"></script>
+</body></html>

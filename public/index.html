@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg">
+<title>مواقيت الصلاة</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div id="appName">مواقيت الصلاة</div>
+  <div class="sub"><span id="hijri"></span> • <span id="greg"></span></div>
+  <div class="sub" id="place"></div>
+</header>
+
+<main>
+  <!-- الرئيسية -->
+  <section id="tab-home" class="tab active">
+    <div class="card hero">
+      <div>الصلاة القادمة: <b id="nextName">--</b></div>
+      <div class="count" id="count">--:--:--</div>
+      <div class="sub" id="nextAt"></div>
+    </div>
+    <div id="jumaa" class="card notice" hidden></div>
+    <div class="card" id="times"></div>
+    <div id="anns"></div>
+  </section>
+
+  <!-- القبلة -->
+  <section id="tab-qibla" class="tab">
+    <div class="card center">
+      <div class="compass" id="compass">
+        <div class="dial" id="dial">
+          <span class="n">ش</span><span class="e">شر</span><span class="s">ج</span><span class="w">غ</span>
+          <div class="kaaba" id="kaaba">🕋</div>
+        </div>
+        <div class="pointer"></div>
+      </div>
+      <div id="qiblaTxt" class="big"></div>
+      <div id="qiblaHint" class="sub"></div>
+      <button id="startCompass">تشغيل البوصلة</button>
+    </div>
+  </section>
+
+  <!-- الأذكار والمسبحة -->
+  <section id="tab-azkar" class="tab">
+    <div class="card center">
+      <div class="big" id="tasCount">0</div>
+      <div class="row">
+        <button id="tasPlus" class="round">سبّح</button>
+      </div>
+      <div class="row">
+        <select id="tasTarget"><option>33</option><option>100</option><option value="0">بدون حد</option></select>
+        <button id="tasReset" class="ghost">تصفير</button>
+      </div>
+    </div>
+    <div id="azkarList"></div>
+  </section>
+
+  <!-- الإعدادات -->
+  <section id="tab-settings" class="tab">
+    <div class="card form">
+      <label>المدينة</label>
+      <select id="city"></select>
+      <button id="gps" class="ghost">📍 استخدم موقعي الحالي (GPS)</button>
+      <label>طريقة الحساب</label>
+      <select id="method"></select>
+      <label>المذهب (وقت العصر)</label>
+      <select id="asr"><option value="1">الجمهور (شافعي/مالكي/حنبلي)</option><option value="2">حنفي</option></select>
+      <label><input type="checkbox" id="h24"> نظام 24 ساعة</label>
+      <label><input type="checkbox" id="notif"> تنبيه + أذان عند دخول الوقت (والتطبيق مفتوح)</label>
+      <a href="/admin" class="sub">دخول الأدمن</a>
+    </div>
+  </section>
+</main>
+
+<nav>
+  <button data-tab="home" class="on">🕌<span>المواقيت</span></button>
+  <button data-tab="qibla">🧭<span>القبلة</span></button>
+  <button data-tab="azkar">📿<span>الأذكار</span></button>
+  <button data-tab="settings">⚙️<span>الإعدادات</span></button>
+</nav>
+
+<script src="prayer.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

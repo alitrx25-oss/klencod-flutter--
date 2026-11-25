@@ -1,0 +1,8 @@
+{
+  "name": "prayer-app",
+  "version": "1.0.0",
+  "description": "تطبيق مواقيت الصلاة مع لوحة ادمن",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=16" }
+}
